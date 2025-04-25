@@ -1,6 +1,6 @@
 # babysteps
 
-A new Flutter project.
+Esse é o BabySteps um projeto voltado para o desenvolvimento de uma tecnologia do tipo chatbot sobre estimulação do desenvolvimento infantil para pais e cuidadores de lactentes.
 
 ## Getting Started
 
