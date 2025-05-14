@@ -8,7 +8,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Informações sobre o seu bebê"),
+        title: const Text(
+          "Informações sobre o seu bebê",
+          style: TextStyle(fontWeight: FontWeight.w700),
+        ),
         centerTitle: true,
         backgroundColor: const Color(0x2F3D661A),
         foregroundColor: const Color(0xFF3E3666),
@@ -48,7 +51,12 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(child: Text('Conteúdo da tela inicial')),
+      body: const Center(
+        child: Text(
+          'Fonte Inter aplicada!',
+          style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.normal),
+        ),
+      ),
     );
   }
 }

@@ -10,8 +10,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BabySteps',
       theme: ThemeData(
+        fontFamily: 'Inter',
         primarySwatch: Colors.deepPurple,
         scaffoldBackgroundColor: const Color(0xFFD5CCFF),
+        useMaterial3: true,
       ),
       home: const HomePage(),
     );
