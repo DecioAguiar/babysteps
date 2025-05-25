@@ -1,3 +1,4 @@
+// autenticacao
 class AuthController {
   bool isLoggedIn = false;
 

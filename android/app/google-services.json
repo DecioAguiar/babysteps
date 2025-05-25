@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "356896784698",
+    "project_id": "babysteps-app-flutter",
+    "storage_bucket": "babysteps-app-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356896784698:android:18fd8098be40be52189003",
+        "android_client_info": {
+          "package_name": "com.example.babysteps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD21iSUgahnLkAu9gmi6Dnur4Vv7MnFDbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

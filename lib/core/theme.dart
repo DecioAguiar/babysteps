@@ -30,8 +30,5 @@ class AppTheme {
       bodyLarge: TextStyle(color: textColor, fontSize: 16),
       bodyMedium: TextStyle(color: textColor, fontSize: 14),
     ),
-
-
-    
   );
 }

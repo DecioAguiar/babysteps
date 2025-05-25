@@ -1,3 +1,18 @@
+// tela de cadastro
+import 'package:flutter/material.dart';
+
+class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(child: Center(child: Text("Tela de Cadastro"))),
+    );
+  }
+}
+
 // import 'package:flutter/material.dart';
 // import 'package:babysteps/home/home_page.dart';
 // import 'package:babysteps/auth/auth_controller.dart';
