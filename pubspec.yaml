@@ -29,8 +29,11 @@ flutter_native_splash:
 flutter:
   uses-material-design: true
   assets: 
-    - assets/img/Icon.png
-    - assets/img/Logo.png
+    - assets/img/babyLogo.png
+    - assets/img/babystepsLogo.png
+    - assets/icons/google.png
+    - assets/icons/facebook.png
+    - assets/icons/apple.png
   fonts:
     - family: Inter
       fonts:

@@ -21,7 +21,7 @@ class App extends StatelessWidget {
       initialRoute: '/login_page',
 
       routes: {
-        '/login_page': (context) => LoginScreen(),
+        '/login_page': (context) => LoginPage(),
         '/home_page': (context) => const HomePage(),
         // '/signup_page': (context) => SignUpScreen(),
       },

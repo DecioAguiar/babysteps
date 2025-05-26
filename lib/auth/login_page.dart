@@ -1,66 +1,148 @@
-import 'package:babysteps/home/home_page.dart';
+import 'package:babysteps/auth/forgot_password_page.dart';
+import 'package:babysteps/components/enumTypes/social_type.dart';
 import 'package:flutter/material.dart';
-import 'auth_controller.dart';
 import 'signup_page.dart';
+import 'package:babysteps/core/theme.dart';
+import 'package:babysteps/components/social_button.dart';
+import 'package:babysteps/components/primary_button.dart';
+import 'package:babysteps/components/custom_input_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  final AuthController authController = AuthController();
-
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Bem vindo ao Babysteps")),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              controller: usernameController,
-              decoration: InputDecoration(labelText: "Usuário"),
-            ),
-            TextField(
-              controller: passwordController,
-              decoration: InputDecoration(labelText: "Senha"),
-              obscureText: true,
-            ),
-            SizedBox(height: 20),
+      backgroundColor: AppTheme.backgroundColor,
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 28.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('assets/img/babystepsLogo.png', height: 150),
 
-            ElevatedButton(
-              onPressed: () {
-                bool success = authController.login(
-                  usernameController.text,
-                  passwordController.text,
-                );
+                const SizedBox(height: 20),
+                const Text(
+                  'Por favor, entre em sua conta',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontSize: 18,
+                    color: Color(0xFF7B7B7B),
+                  ),
+                ),
 
-                if (success) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Login incorreto. Tente novamente!'),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SocialButton(
+                      type: SocialType.google,
+                      onPressed: () {
+                        //Login com google
+                      },
                     ),
-                  );
-                }
-              },
-              child: Text('Entrar'),
-            ),
+                    SocialButton(
+                      type: SocialType.facebook,
+                      onPressed: () {
+                        //login com facebook
+                      },
+                    ),
+                    SocialButton(
+                      type: SocialType.apple,
+                      onPressed: () {
+                        //Login apple id
+                      },
+                    ),
+                  ],
+                ),
 
-            Text('Ainda não tem uma conta? Cadastre-se!'),
-            // TextButton(
-            //   onPressed: () {
-            //     Navigator.pushReplacement(
-            //       MaterialPageRoute(builder: (context) => SignUpScreen()),
-            //     );
-            //   },
-            //   child: ,
-            // ),
-          ],
+                const SizedBox(height: 20),
+                Row(
+                  children: const [
+                    Expanded(
+                      child: Divider(color: Color(0xFF7B7B7B), indent: 60),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'or',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xFF7B7B7B),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(color: Color(0xFF7B7B7B), endIndent: 60),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 30),
+                CustomInputField(
+                  icon: Icons.person,
+                  hintText: 'Entre com seu e-mail',
+                ),
+
+                const SizedBox(height: 14),
+                CustomInputField(
+                  icon: Icons.lock,
+                  hintText: 'Entre com sua senha',
+                  obscureText: true,
+                ),
+
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPasswordPage(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Esqueci minha senha',
+                      style: TextStyle(
+                        fontSize: 10.47,
+                        fontWeight: FontWeight.bold,
+                        color: AppTheme.secondaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+                PrimaryButton(text: 'Login', onPressed: () {}),
+
+                const SizedBox(height: 2),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpPage()),
+                    );
+                  },
+                  child: const Text.rich(
+                    TextSpan(
+                      text: 'Não tenho conta?',
+                      children: [
+                        TextSpan(
+                          text: ' Criar conta',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppTheme.textColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    style: TextStyle(fontSize: 10.47, color: Color(0xFF7B7B7B)),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

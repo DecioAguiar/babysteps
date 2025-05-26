@@ -7,6 +7,9 @@ class AppTheme {
   static const backgroundColor = Color(0xFFD5CCFF);
   static const textColor = secondaryColor;
 
+  static const inputFieldColor = Color.fromARGB(102, 62, 54, 102);
+  static const hintTextColor = Color.fromARGB(127, 255, 255, 255);
+  
   static const String fontFamily = 'Inter';
 
   static final ThemeData lightTheme = ThemeData(
@@ -30,8 +33,5 @@ class AppTheme {
       bodyLarge: TextStyle(color: textColor, fontSize: 16),
       bodyMedium: TextStyle(color: textColor, fontSize: 14),
     ),
-
-
-    
   );
 }
