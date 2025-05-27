@@ -1,8 +1,8 @@
-//apresentacao
 import 'package:flutter/material.dart';
+import '../auth/signup_page.dart';
 
-class PresentationTab extends StatelessWidget {
-  const PresentationTab({super.key});
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +45,18 @@ class PresentationTab extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
+                          Text(
+                            "Bem-Vindo ao BabySteps",
+                            style: TextStyle(
+                              fontFamily: "Inter",
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                           SizedBox(height: 12),
                           Text(
-                            "Olá! Aqui é a assistente virtual de saúde do BabySteps. Ficamos felizes pelo seu cadastro em nosso chat. Agora, vamos ao preenchimento de algumas informações importantes para compreendermos melhor sobre a criança e você enquanto pai/mãe/cuidador.",
+                            "O BabySteps é o seu aplicativo de conversação sobre o desenvolvimento infantil para crianças até o primeiro ano de vida. Aborda especificamente técnicas de estimulação sobre o desenvolvimento físico e estimula o brincar, através de técnicas simples que podem ser realizadas no conforto do seu lar. Esse aplicativo foi idealizado por enfermeiros promotores do desenvolvimento infantil.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: "Inter",
@@ -64,20 +73,24 @@ class PresentationTab extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignupPage(),
+                              ),
+                            );
                             // click do botao para a proxima pagia
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
+                            backgroundColor: Color(0xFF7263BB),
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                           child: const Text(
-                            'Vamos começar!',
+                            'Seguir',
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
                               fontFamily: "Inter",
                               color: Colors.white,
                               fontSize: 16,
