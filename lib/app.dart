@@ -23,7 +23,7 @@ class BabySteps extends StatelessWidget {
 
       routes: {
         '/welcome_screen': (context) => WelcomeScreen(),
-        '/login_page': (context) => LoginScreen(),
+        '/login_page': (context) => LoginPage(),
         '/home_page': (context) => const HomePage(),
         // '/signup_page': (context) => SignUpScreen(),
       },
