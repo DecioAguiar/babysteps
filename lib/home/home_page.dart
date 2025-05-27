@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Fonte Inter aplicada!',
+          'Você está na Home do app!',
           style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.normal),
         ),
       ),
