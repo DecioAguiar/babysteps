@@ -1,5 +1,6 @@
 import 'package:babysteps/auth/forgot_password_page.dart';
 import 'package:babysteps/components/enumTypes/social_type.dart';
+import 'package:babysteps/home/tabs/main_navigation.dart';
 import 'package:flutter/material.dart';
 import 'signup_page.dart';
 import 'package:babysteps/core/theme.dart';
@@ -114,7 +115,17 @@ class LoginPage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 20),
-                PrimaryButton(text: 'Login', onPressed: () {}),
+                PrimaryButton(
+                  text: 'Login',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainNavigation(),
+                      ),
+                    );
+                  },
+                ),
 
                 const SizedBox(height: 2),
                 TextButton(
