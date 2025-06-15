@@ -1,5 +1,5 @@
+import 'package:babysteps/auth/login_page.dart';
 import 'package:flutter/material.dart';
-import '../auth/signup_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -40,7 +40,7 @@ class WelcomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(height: 30),
-                      Image.asset('assets/img/LogoWhite.png', height: 130),
+                      Image.asset('assets/img/babystepsWhiteLogo.png', height: 130),
                       const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SignupPage(),
+                                builder: (context) => LoginPage(),
                               ),
                             );
                             // click do botao para a proxima pagia

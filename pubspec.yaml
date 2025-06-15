@@ -28,6 +28,14 @@ flutter_native_splash:
   ios: true
   web: false
 
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/img/babyLogo.png
+  min_sdk_android: 21
+  adaptive_icon_background: "0xFF7263BB"
+
+
 flutter:
   uses-material-design: true
   assets: 
@@ -36,6 +44,7 @@ flutter:
     - assets/icons/google.png
     - assets/icons/facebook.png
     - assets/icons/apple.png
+    - assets/img/babystepsWhiteLogo.png
     - assets/img/Mother.png
   fonts:
     - family: Inter
