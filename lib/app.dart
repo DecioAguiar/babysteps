@@ -4,7 +4,6 @@ import 'package:babysteps/home/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'auth/login_page.dart';
 import 'home/home_page.dart';
-import 'home/tabs/main_navigation.dart';
 
 class BabySteps extends StatelessWidget {
   const BabySteps({super.key});

@@ -38,6 +38,10 @@ flutter:
     - assets/icons/apple.png
     - assets/img/Mother.png
     - assets/img/LogoWhite.png
+    - assets/icons/Casa.png
+    - assets/icons/Chat.png
+    - assets/icons/Usuário.png
+
   fonts:
     - family: Inter
       fonts:
