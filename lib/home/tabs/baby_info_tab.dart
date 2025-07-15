@@ -6,6 +6,6 @@ class BabyInfoTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('crianca1'));
+    return Center(child: Text('Tela de Informações da Criança'));
   }
 }

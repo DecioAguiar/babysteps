@@ -23,15 +23,16 @@ class ForgotPasswordPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 20),
             PrimaryButton(
               text: 'Enviar',
-              onPressed: (){
+              onPressed: () {
                 //Implementação de recuperação de senha
-              })
+              },
+            ),
           ],
         ),
-      )
+      ),
     );
   }
 }

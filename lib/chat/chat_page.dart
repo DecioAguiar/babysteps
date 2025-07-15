@@ -5,6 +5,6 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('chat'));
+    return Center(child: Text('Tela do chat'));
   }
 }
