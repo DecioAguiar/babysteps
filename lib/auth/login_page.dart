@@ -8,6 +8,8 @@ import 'package:babysteps/components/primary_button.dart';
 import 'package:babysteps/components/custom_input_field.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

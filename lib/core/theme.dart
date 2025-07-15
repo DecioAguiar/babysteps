@@ -9,7 +9,7 @@ class AppTheme {
 
   static const inputFieldColor = Color.fromARGB(102, 62, 54, 102);
   static const hintTextColor = Color.fromARGB(127, 255, 255, 255);
-  
+
   static const String fontFamily = 'Inter';
 
   static final ThemeData lightTheme = ThemeData(

@@ -6,6 +6,8 @@ import 'package:babysteps/components/social_button.dart';
 import 'package:babysteps/components/enumTypes/social_type.dart';
 
 class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
