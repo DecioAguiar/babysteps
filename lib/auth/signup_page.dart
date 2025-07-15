@@ -6,6 +6,8 @@ import 'package:babysteps/components/social_button.dart';
 import 'package:babysteps/components/enumTypes/social_type.dart';
 
 class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +65,7 @@ class SignUpPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
-                        'or',
+                        'OU',
                         style: TextStyle(
                           fontSize: 16,
                           color: Color(0xFF7B7B7B),
@@ -95,7 +97,7 @@ class SignUpPage extends StatelessWidget {
                   obscureText: true,
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 34),
                 PrimaryButton(
                   text: 'Criar',
                   onPressed: () {

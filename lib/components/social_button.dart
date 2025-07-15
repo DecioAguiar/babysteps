@@ -11,7 +11,7 @@ class SocialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Ink(
       child: IconButton(
-        icon: Image.asset(type.iconPath, width: 80, height: 80),
+        icon: Image.asset(type.iconPath, width: 76, height: 76),
         onPressed: onPressed,
       ),
     );

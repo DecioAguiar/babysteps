@@ -11,8 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  flutter_launcher_icons: ^0.14.3
-  flutter_native_splash: ^2.4.6
   firebase_core: ^3.13.1
   firebase_auth: ^5.5.4
 
@@ -20,13 +18,27 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.6
 
 flutter_native_splash:
   color: "#2196F3"
-  image: assets/img/logo.png
+  background_image: "assets/img/splashScreen.png"
+  image: "assets/img/babystepsWhiteLogo.png"
   android: true
   ios: true
-  web: false
+
+  android_12:
+    color: "#7263BB"
+    image: "assets/img/babystepsWhiteLogo.png"
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path_android: "assets/img/babyLogo.png"
+  adaptive_icon_foreground: "assets/img/babyLogo.png"
+  adaptive_icon_background: "#7263BB"
+  remove_alpha_ios: true
 
 flutter:
   uses-material-design: true
@@ -36,13 +48,18 @@ flutter:
     - assets/icons/google.png
     - assets/icons/facebook.png
     - assets/icons/apple.png
+    - assets/img/babystepsWhiteLogo.png
     - assets/img/Mother.png
+<<<<<<< HEAD
     - assets/img/LogoWhite.png
     - assets/icons/Casa.png
     - assets/icons/Chat.png
     - assets/icons/Usuário.png
     - assets/img/BgHomePage.png
 
+=======
+    - assets/img/splashScreen.png
+>>>>>>> d473edf2fb57a76b3ce4572d69b1267b0ecb2b09
   fonts:
     - family: Inter
       fonts:
