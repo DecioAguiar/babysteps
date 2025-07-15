@@ -42,7 +42,7 @@ flutter_launcher_icons:
 
 flutter:
   uses-material-design: true
-  assets: 
+  assets:
     - assets/img/babyLogo.png
     - assets/img/babystepsLogo.png
     - assets/icons/google.png
@@ -50,6 +50,10 @@ flutter:
     - assets/icons/apple.png
     - assets/img/babystepsWhiteLogo.png
     - assets/img/Mother.png
+    - assets/icons/Casa.png
+    - assets/icons/Chat.png
+    - assets/icons/Usuário.png
+    - assets/img/BgHomePage.png
     - assets/img/splashScreen.png
   fonts:
     - family: Inter
