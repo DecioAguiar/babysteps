@@ -41,6 +41,7 @@ flutter:
     - assets/icons/Casa.png
     - assets/icons/Chat.png
     - assets/icons/Usuário.png
+    - assets/img/BgHomePage.png
 
   fonts:
     - family: Inter
