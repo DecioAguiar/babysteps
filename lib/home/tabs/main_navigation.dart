@@ -24,85 +24,61 @@ class _MainNavigationState extends State<MainNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: _screens[_selectedIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: GestureDetector(
-        onTap: () => _onItemTapped(1), // icon home
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 45), //padding bottom da nav
         child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           height: 80,
-          width: 80,
           decoration: BoxDecoration(
-            color: const Color(0xFFB9F4FC),
-            shape: BoxShape.circle,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(14),
-            child: Image.asset(
-              'assets/icons/Casa.png',
-              height: 100,
-              color: const Color(0xFF443178),
-            ),
-          ),
-        ),
-      ),
-
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(color: Colors.transparent),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(36),
-            topRight: Radius.circular(36),
-          ),
-          child: BottomAppBar(
-            shape: AutomaticNotchedShape(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(36)),
+            color: const Color(0xFF443178),
+            borderRadius: BorderRadius.circular(50),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 10,
+                offset: Offset(0, 4),
               ),
-            ),
-            notchMargin: 0,
-            color: Color(0xFF443178),
-            child: SizedBox(
-              height: 80,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // icon info do bebe
-                  Padding(
-                    padding: const EdgeInsets.only(left: 32.0),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () => _onItemTapped(0),
-                        child: Image.asset(
-                          'assets/icons/Usuário.png',
-                          height: 42,
-                          color:
-                              _selectedIndex == 0
-                                  ? Color(0xFFCCF1FF)
-                                  : Colors.white70,
-                        ),
-                      ),
-                    ),
-                  ),
-                  // icon do chat
-                  Padding(
-                    padding: const EdgeInsets.only(right: 32.0),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () => _onItemTapped(2),
-                        child: Image.asset(
-                          'assets/icons/Chat.png',
-                          height: 42,
-                          color:
-                              _selectedIndex == 2
-                                  ? Color(0xFFCCF1FF)
-                                  : Colors.white70,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: () => _onItemTapped(0),
+                icon: Image.asset(
+                  'assets/icons/Usuário.png',
+                  height: 32,
+                  color:
+                      _selectedIndex == 0
+                          ? const Color(0xFFB9F4FC)
+                          : Colors.white70,
+                ),
               ),
-            ),
+              IconButton(
+                onPressed: () => _onItemTapped(1),
+                icon: Image.asset(
+                  'assets/icons/Casa.png',
+                  height: 32,
+                  color:
+                      _selectedIndex == 1
+                          ? const Color(0xFFB9F4FC)
+                          : Colors.white70,
+                ),
+              ),
+              IconButton(
+                onPressed: () => _onItemTapped(2),
+                icon: Image.asset(
+                  'assets/icons/Chat.png',
+                  height: 32,
+                  color:
+                      _selectedIndex == 2
+                          ? const Color(0xFFB9F4FC)
+                          : Colors.white70,
+                ),
+              ),
+            ],
           ),
         ),
       ),

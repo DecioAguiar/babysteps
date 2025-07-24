@@ -1,4 +1,3 @@
-//tela principal com as tabs
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,11 +8,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Informações sobre o seu bebê",
+          "Home",
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
-        backgroundColor: const Color(0x2F3D661A),
+        backgroundColor: const Color(0xFFEDE1F7),
         foregroundColor: const Color(0xFF3E3666),
         actions: [
           PopupMenuButton<String>(
@@ -51,46 +50,35 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+
       body: Container(
-        decoration: const BoxDecoration(
-          color: Color(0xFF2E254D),
-          image: DecorationImage(
-            image: AssetImage('assets/img/BgHomePage.png'),
-            fit: BoxFit.cover,
-            opacity: 0.5,
-          ),
-        ),
+        decoration: const BoxDecoration(color: Color(0xFFEDE1F7)),
         child: Column(
           children: [
             const SizedBox(height: 20),
-            Expanded(
+            Center(
               child: Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 130,
-                ),
+                height: 450, // altura fixa para centralizar verticalmente
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color(0xFFEDE1F7),
+                  color: const Color(0xFF2E254D),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       "Menus",
                       style: TextStyle(
-                        color: Color(0xFF2E254D),
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 20),
-                    Center(
-                      child: GridView.count(
-                        shrinkWrap: true,
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
+                    Expanded(
+                      child: ListView(
                         children: [
                           _buildMenuItem(
                             context,
@@ -98,18 +86,21 @@ class HomePage extends StatelessWidget {
                             icon: Icons.baby_changing_station,
                             onTap: () {},
                           ),
+                          const SizedBox(height: 16),
                           _buildMenuItem(
                             context,
                             title: "Definição dos domínios do bebê",
                             icon: Icons.description,
                             onTap: () {},
                           ),
+                          const SizedBox(height: 16),
                           _buildMenuItem(
                             context,
                             title: "Técnicas de estimulação",
                             icon: Icons.play_circle_fill,
                             onTap: () {},
                           ),
+                          const SizedBox(height: 16),
                           _buildMenuItem(
                             context,
                             title: "Alcançar marcos",
@@ -154,19 +145,26 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Stack(
           children: [
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(icon, size: 40, color: const Color(0xFF5D3B91)),
-                  const SizedBox(height: 10),
-                  Text(
+            Row(
+              children: [
+                Icon(icon, size: 36, color: const Color(0xFF5D3B91)),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Text(
                     title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 14, color: Colors.black),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ],
-              ),
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: Color(0xFF5D3B91),
+                ),
+              ],
             ),
             if (hasMic)
               const Positioned(
