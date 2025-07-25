@@ -8,11 +8,17 @@ class SocialButton extends StatelessWidget {
   const SocialButton({super.key, required this.type, required this.onPressed});
 
   @override
-  Widget build(BuildContext context) {
-    return Ink(
-      child: IconButton(
-        icon: Image.asset(type.iconPath, width: 76, height: 76),
-        onPressed: onPressed,
+  Widget build(BuildContext) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      child: Container(
+        decoration: BoxDecoration(shape: BoxShape.circle),
+        child: ClipOval(
+          child: IconButton(
+            icon: Image.asset(type.iconPath, width: 70, height: 70),
+            onPressed: onPressed,
+          ),
+        ),
       ),
     );
   }

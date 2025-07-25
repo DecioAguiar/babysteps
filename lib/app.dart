@@ -4,6 +4,7 @@ import 'package:babysteps/home/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'auth/login_page.dart';
 import 'home/home_page.dart';
+import 'core/theme.dart';
 
 class BabySteps extends StatelessWidget {
   const BabySteps({super.key});
@@ -13,12 +14,7 @@ class BabySteps extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BabySteps',
-      theme: ThemeData(
-        fontFamily: 'Inter',
-        primarySwatch: Colors.deepPurple,
-        scaffoldBackgroundColor: const Color(0xFFD5CCFF),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
 
       initialRoute: '/welcome_screen',
 
