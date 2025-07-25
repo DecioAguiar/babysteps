@@ -17,14 +17,14 @@ class PrimaryButton extends StatelessWidget {
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 10),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(50),
           ),
         ),
         onPressed: onPressed,
         child: Text(
           text,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 17,
             fontWeight: FontWeight.w700,
             height: 2.0,
           ),

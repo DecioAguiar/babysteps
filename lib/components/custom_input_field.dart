@@ -33,29 +33,31 @@ class CustomInputField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(fontSize: 13, color: AppTheme.hintTextColor),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(50),
           borderSide: BorderSide.none,
         ),
-        // Adicionei um erro border para que o validator funcione visualmente
+        //erro border para que o validator funcione visualmente
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(50),
           borderSide: const BorderSide(color: Colors.red, width: 1.0),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(50),
           borderSide: const BorderSide(color: Colors.red, width: 2.0),
         ),
         enabledBorder: OutlineInputBorder(
           // Define a borda quando o campo está habilitado
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(50),
           borderSide:
               BorderSide
                   .none, // Ou BorderSide(color: AppTheme.borderColor, width: 1.0) se quiser uma borda
         ),
         focusedBorder: OutlineInputBorder(
           // Define a borda quando o campo está focado
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: const Color.fromARGB(255, 255, 61, 194)),
+          borderRadius: BorderRadius.circular(50),
+          borderSide: BorderSide(
+            color: const Color.fromARGB(255, 255, 61, 194),
+          ),
         ),
       ),
     );
