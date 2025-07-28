@@ -55,14 +55,14 @@ class HomePage extends StatelessWidget {
         decoration: const BoxDecoration(color: Color(0xFFEDE1F7)),
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 110), // altura do conteudo pro container
             Center(
               child: Container(
-                height: 450, // altura fixa para centralizar verticalmente
+                height: 450, // altura fixa para centralizar
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF2E254D),
+                  color: const Color(0xffad95df),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Column(
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                     const Text(
                       "Menus",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF3E3666),
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
