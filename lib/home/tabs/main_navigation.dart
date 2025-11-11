@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:babysteps/core/theme.dart';
 import '../home_page.dart';
 import 'baby_info_tab.dart';
 import 'package:babysteps/chat/chat_page.dart';
@@ -21,8 +22,63 @@ class _MainNavigationState extends State<MainNavigation> {
     });
   }
 
+  AppBar _buildRegularAppBar() {
+    final appBarTheme = Theme.of(context).appBarTheme;
+    return AppBar(
+      title: Text(_getAppBarTitle(), style: appBarTheme.titleTextStyle),
+      centerTitle: true,
+      backgroundColor: appBarTheme.backgroundColor,
+      foregroundColor: appBarTheme.iconTheme?.color,
+      elevation: 0,
+    );
+  }
+
+  Widget _buildSliverAppBar() {
+    final appBarTheme = Theme.of(context).appBarTheme;
+    return SliverAppBar(
+      title: Text(_getAppBarTitle(), style: appBarTheme.titleTextStyle),
+      centerTitle: true,
+      backgroundColor: appBarTheme.backgroundColor,
+      foregroundColor: appBarTheme.iconTheme?.color,
+      elevation: 0,
+      floating: true, // Efeito desejado para a tela de Chat
+      snap: true,
+    );
+  }
+
+  // Método auxiliar para pegar o título de qualquer tela
+  String _getAppBarTitle() {
+    switch (_selectedIndex) {
+      case 0:
+        return 'Informações do bebê';
+      case 1:
+        return 'Página Inicial';
+      case 2:
+        return 'Chat';
+      default:
+        return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    PreferredSizeWidget? appBar;
+    Widget body;
+
+    // AGRUPAMOS AS TELAS ESTÁTICAS (0 e 1)
+    if (_selectedIndex == 0 || _selectedIndex == 1) {
+      appBar = _buildRegularAppBar();
+      body = _screens[_selectedIndex];
+    } else {
+      // A TELA DE CHAT (2) É A ÚNICA COM ROLAGEM
+      appBar = null;
+      body = CustomScrollView(
+        slivers: <Widget>[
+          _buildSliverAppBar(),
+          SliverFillRemaining(child: _screens[_selectedIndex]),
+        ],
+      );
+    }
     return Scaffold(
       extendBody: true,
       body: _screens[_selectedIndex],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:babysteps/core/theme.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -107,12 +108,13 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
+  // O método _buildMenuItem pode continuar aqui, pois é usado apenas pela HomePage.
   Widget _buildMenuItem(
     BuildContext context, {
     required String title,
@@ -124,11 +126,11 @@ class HomePage extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFFD7CFF2),
+          color: AppTheme.backgroundColor,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: const Color.fromARGB(129, 0, 0, 0),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -167,7 +169,7 @@ class HomePage extends StatelessWidget {
                   backgroundColor: const Color(0xFF5D3B91),
                   child: Icon(
                     Icons.notifications,
-                    size: 12,
+                    size: 14,
                     color: Colors.white,
                   ),
                 ),
