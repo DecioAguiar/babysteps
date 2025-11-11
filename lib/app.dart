@@ -1,4 +1,5 @@
 // widget principal com o MaterialApp, rotas e tema.
+import 'package:babysteps/education/desenvolvimento_com_afeto_page.dart';
 import 'package:babysteps/home/tabs/presentation_tab.dart';
 import 'package:babysteps/home/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,8 @@ import 'home/home_page.dart';
 import 'core/theme.dart';
 
 class BabySteps extends StatelessWidget {
-  const BabySteps({super.key});
+  final bool hasSeenWelcome;
+  const BabySteps({super.key, required this.hasSeenWelcome});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +18,14 @@ class BabySteps extends StatelessWidget {
       title: 'BabySteps',
       theme: AppTheme.lightTheme,
 
-      initialRoute: '/welcome_screen',
+      initialRoute: hasSeenWelcome ? '/login_page' : '/welcome_screen',
 
       routes: {
         '/presentation_tab': (context) => PresentationTab(),
         '/welcome_screen': (context) => WelcomeScreen(),
         '/login_page': (context) => LoginPage(),
         '/home_page': (context) => const HomePage(),
+        '/desenvolvimento_com_afeto': (context) => const DesenvolvimentoComAfetoPage(),
         // '/signup_page': (context) => SignUpScreen(),
       },
     );

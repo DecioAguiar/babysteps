@@ -18,7 +18,7 @@ class BabyInfoTab extends StatelessWidget {
               child: CircleAvatar(
                 radius: 64,
                 backgroundColor: AppTheme.primaryColor,
-                child: const CircleAvatar(
+                child: CircleAvatar(
                   radius: 60,
                   backgroundColor: Colors.white70,
                   backgroundImage: AssetImage('assets/icons/asiaticBaby.jpg'),
