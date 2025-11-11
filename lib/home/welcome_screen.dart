@@ -1,8 +1,18 @@
 import 'package:babysteps/auth/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
+
+  Future<void> _setWelcomeSeen(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('hasSeenWelcome', true);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +75,7 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      );
-                      // click do botao para a proxima pagia
-                    },
+                    onPressed: () => _setWelcomeSeen(context),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF7263BB),
                       padding: const EdgeInsets.symmetric(vertical: 16),

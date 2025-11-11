@@ -7,22 +7,17 @@ class PresentationTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onTap: () {
-          // Ao tocar em qualquer lugar da tela:
-          // Navigator.push(context, MaterialPageRoute(builder: (_) => NextPage()));
-        },
         child: Stack(
           children: [
             SizedBox.expand(
               child: Image.asset('assets/img/Mother.png', fit: BoxFit.cover),
             ),
-
             Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.black.withAlpha((0.20 * 255).toInt()),
-                    Colors.black.withAlpha((0.65 * 255).toInt()),
+                    Colors.black.withOpacity(0.20),
+                    Colors.black.withOpacity(0.65),
                   ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -50,15 +45,26 @@ class PresentationTab extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   SizedBox(
-                    width: double.infinity,
-                    child: Center(
-                      child: Text(
+                    width: double.infinity, // Ocupa toda a largura
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Ao tocar no botão:
+                        // Navigator.push(context, MaterialPageRoute(builder: (_) => NextPage()));
+                        // Por enquanto, vamos apenas imprimir no console para teste.
+                        debugPrint("Botão 'Vamos Começar' pressionado!");
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            Colors.transparent, // Fundo transparente
+                        shadowColor: Colors.transparent, // Sem sombra
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                      ),
+                      child: const Text(
                         'Vamos Começar',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Inter",
-                          color: Colors.white,
                           fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

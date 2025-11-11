@@ -27,7 +27,7 @@ class _MainNavigationState extends State<MainNavigation> {
       extendBody: true,
       body: _screens[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 45), //padding bottom da nav
+        padding: const EdgeInsets.only(bottom: 20), //padding bottom da nav
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
           height: 80,

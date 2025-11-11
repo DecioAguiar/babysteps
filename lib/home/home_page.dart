@@ -24,41 +24,39 @@ class HomePage extends StatelessWidget {
                 print("Sair");
               }
             },
-            itemBuilder:
-                (BuildContext context) => <PopupMenuEntry<String>>[
-                  const PopupMenuItem<String>(
-                    value: 'config',
-                    child: Row(
-                      children: [
-                        Icon(Icons.settings, color: Colors.black54),
-                        SizedBox(width: 8),
-                        Text('Configurações'),
-                      ],
-                    ),
-                  ),
-                  const PopupMenuItem<String>(
-                    value: 'sair',
-                    child: Row(
-                      children: [
-                        Icon(Icons.logout, color: Colors.black54),
-                        SizedBox(width: 8),
-                        Text('Sair'),
-                      ],
-                    ),
-                  ),
-                ],
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: 'config',
+                child: Row(
+                  children: [
+                    Icon(Icons.settings, color: Colors.black54),
+                    SizedBox(width: 8),
+                    Text('Configurações'),
+                  ],
+                ),
+              ),
+              const PopupMenuItem<String>(
+                value: 'sair',
+                child: Row(
+                  children: [
+                    Icon(Icons.logout, color: Colors.black54),
+                    SizedBox(width: 8),
+                    Text('Sair'),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
-
       body: Container(
         decoration: const BoxDecoration(color: Color(0xFFEDE1F7)),
         child: Column(
           children: [
-            const SizedBox(height: 110), // altura do conteudo pro container
+            const SizedBox(height: 110),
             Center(
               child: Container(
-                height: 450, // altura fixa para centralizar
+                height: 450,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -68,23 +66,17 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Menus",
-                      style: TextStyle(
-                        color: Color(0xFF3E3666),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
                     const SizedBox(height: 20),
                     Expanded(
                       child: ListView(
                         children: [
                           _buildMenuItem(
                             context,
-                            title: "Desenvolvimento infantil",
+                            title: "Desenvolvimento com afeto",
                             icon: Icons.baby_changing_station,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/desenvolvimento_com_afeto');
+                            },
                           ),
                           const SizedBox(height: 16),
                           _buildMenuItem(
@@ -167,12 +159,12 @@ class HomePage extends StatelessWidget {
               ],
             ),
             if (hasMic)
-              const Positioned(
+              Positioned(
                 top: 4,
                 right: 4,
                 child: CircleAvatar(
                   radius: 10,
-                  backgroundColor: Color(0xFF5D3B91),
+                  backgroundColor: const Color(0xFF5D3B91),
                   child: Icon(
                     Icons.notifications,
                     size: 12,

@@ -1,55 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
+
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
+  late final WebViewController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse('https://typebot.co/my-typebot-3hqg6w2'));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Chatbot",
-          style: TextStyle(fontWeight: FontWeight.w700),
-        ),
-        centerTitle: true,
+        title: const Text('Chat', style: TextStyle(fontWeight: FontWeight.w700)),
         backgroundColor: const Color(0xFFEDE1F7),
         foregroundColor: const Color(0xFF3E3666),
-        actions: [
-          PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert),
-            onSelected: (value) {
-              if (value == 'config') {
-                print("Configurações");
-              } else if (value == 'sair') {
-                print("Sair");
-              }
-            },
-            itemBuilder:
-                (BuildContext context) => <PopupMenuEntry<String>>[
-                  const PopupMenuItem<String>(
-                    value: 'config',
-                    child: Row(
-                      children: [
-                        Icon(Icons.settings, color: Colors.black54),
-                        SizedBox(width: 8),
-                        Text('Configurações'),
-                      ],
-                    ),
-                  ),
-                  const PopupMenuItem<String>(
-                    value: 'sair',
-                    child: Row(
-                      children: [
-                        Icon(Icons.logout, color: Colors.black54),
-                        SizedBox(width: 8),
-                        Text('Sair'),
-                      ],
-                    ),
-                  ),
-                ],
-          ),
-        ],
+        centerTitle: true,
       ),
+      body: WebViewWidget(controller: _controller),
     );
   }
 }
