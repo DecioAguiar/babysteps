@@ -15,6 +15,15 @@ class TecnicasEstimulacaoPage extends StatelessWidget {
       body: ListView(
         children: const [
           AgeRangeTile(
+            title: 'O que diz a Caderneta da Criança sobre estimular com afeto',
+            page: QuestionDetailPage(
+              question: 'O que diz a Caderneta da Criança sobre estimular com afeto',
+              pages: [
+                'A caderneta da criança disponibilizada pelo ministério da saúde traz um capítulo que aborda alternativas de como estimular o desenvolvimento da criança com afeto de acordo com a faixa etária. No BabySteps, você encontrará esses estímulos até o primeiro ano de vida.',
+              ],
+            ),
+          ),
+          AgeRangeTile(
             title: 'Nascimento aos 2 meses',
             page: QuestionDetailPage(
               question: 'Nascimento aos 2 meses',

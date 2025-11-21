@@ -1,123 +1,96 @@
-import 'package:flutter/material.dart';
-import 'package:babysteps/core/theme.dart';
+import 'package:babysteps/auth/baby_info_setup_page.dart';
 import 'package:babysteps/components/primary_button.dart';
+import 'package:flutter/material.dart';
 import 'package:babysteps/components/custom_input_field.dart';
-import 'package:babysteps/components/social_button.dart';
-import 'package:babysteps/components/enumTypes/social_type.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
+  void _signUp() {
+    if (_formKey.currentState!.validate()) {
+      // Mock sign-up logic
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const BabyInfoSetupPage(),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 28.0),
+      appBar: AppBar(
+        title: const Text('Criar Conta'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(28.0),
+          child: Form(
+            key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/img/babystepsLogo.png', height: 150),
-
+                Image.asset('assets/img/babystepsLogo.png', height: 120),
                 const SizedBox(height: 20),
                 const Text(
-                  'Por favor, crie sua conta',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w200,
-                    fontSize: 18,
-                    color: Color(0xFF7B7B7B),
-                  ),
+                  'Crie sua conta para começar',
+                  style: TextStyle(fontSize: 18, color: Colors.black54),
                 ),
-
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SocialButton(
-                      type: SocialType.google,
-                      onPressed: () {
-                        //Login com google
-                      },
-                    ),
-                    SocialButton(
-                      type: SocialType.facebook,
-                      onPressed: () {
-                        //login com facebook
-                      },
-                    ),
-                    SocialButton(
-                      type: SocialType.apple,
-                      onPressed: () {
-                        //Login apple id
-                      },
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 20),
-                Row(
-                  children: const [
-                    Expanded(
-                      child: Divider(color: Color(0xFF7B7B7B), indent: 60),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text(
-                        'OU',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xFF7B7B7B),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(color: Color(0xFF7B7B7B), endIndent: 60),
-                    ),
-                  ],
-                ),
-
                 const SizedBox(height: 30),
                 CustomInputField(
-                  icon: Icons.person,
-                  hintText: 'Digite seu nome',
-                ),
-
-                const SizedBox(height: 14),
-                CustomInputField(
+                  controller: _emailController,
                   icon: Icons.email,
-                  hintText: 'Digite seu e-mail',
+                  hintText: 'Email',
+                  validator: (value) {
+                    if (value == null || value.isEmpty || !value.contains('@')) {
+                      return 'Por favor, insira um email válido';
+                    }
+                    return null;
+                  },
                 ),
-
-                const SizedBox(height: 14),
+                const SizedBox(height: 16),
                 CustomInputField(
+                  controller: _passwordController,
                   icon: Icons.lock,
-                  hintText: 'Digite sua senha',
+                  hintText: 'Senha',
                   obscureText: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty || value.length < 6) {
+                      return 'A senha deve ter pelo menos 6 caracteres';
+                    }
+                    return null;
+                  },
                 ),
-
-                const SizedBox(height: 34),
+                const SizedBox(height: 16),
+                CustomInputField(
+                  controller: _confirmPasswordController,
+                  icon: Icons.lock,
+                  hintText: 'Confirmar Senha',
+                  obscureText: true,
+                  validator: (value) {
+                    if (value != _passwordController.text) {
+                      return 'As senhas não coincidem';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 30),
                 PrimaryButton(
-                  text: 'Criar',
-                  onPressed: () {
-                    // Lógica para criar conta
-                  },
-                ),
-
-                const SizedBox(height: 10),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context); // Volta para LoginPage
-                  },
-                  child: const Text(
-                    'Já tenho uma conta',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: AppTheme.secondaryColor,
-                    ),
-                  ),
+                  text: 'Criar Conta',
+                  onPressed: _signUp,
                 ),
               ],
             ),
