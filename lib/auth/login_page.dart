@@ -3,13 +3,39 @@ import 'package:babysteps/components/enumTypes/social_type.dart';
 import 'package:babysteps/home/tabs/main_navigation.dart';
 import 'package:flutter/material.dart';
 import 'signup_page.dart';
-import 'package:babysteps/core/theme.dart';
 import 'package:babysteps/components/social_button.dart';
 import 'package:babysteps/components/primary_button.dart';
 import 'package:babysteps/components/custom_input_field.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _login() {
+    if (_emailController.text == 'user@babysteps.com' &&
+        _passwordController.text == '123456') {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MainNavigation(),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Email ou senha inválidos.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +48,6 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset('assets/img/babystepsLogo.png', height: 150),
-
                 const SizedBox(height: 20),
                 const Text(
                   'Por favor, entre em sua conta',
@@ -32,32 +57,24 @@ class LoginPage extends StatelessWidget {
                     color: Color(0xFF7B7B7B),
                   ),
                 ),
-
                 const SizedBox(height: 20),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SocialButton(
                       type: SocialType.google,
-                      onPressed: () {
-                        //Login com google
-                      },
+                      onPressed: () {},
                     ),
                     SocialButton(
                       type: SocialType.facebook,
-                      onPressed: () {
-                        //login com facebook
-                      },
+                      onPressed: () {},
                     ),
                     SocialButton(
                       type: SocialType.apple,
-                      onPressed: () {
-                        //Login apple id
-                      },
+                      onPressed: () {},
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 20),
                 Row(
                   children: const [
@@ -79,20 +96,19 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 30),
                 CustomInputField(
+                  controller: _emailController,
                   icon: Icons.person,
                   hintText: 'Entre com seu e-mail',
                 ),
-
                 const SizedBox(height: 14),
                 CustomInputField(
+                  controller: _passwordController,
                   icon: Icons.lock,
                   hintText: 'Entre com sua senha',
                   obscureText: true,
                 ),
-
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
@@ -109,25 +125,16 @@ class LoginPage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 10.47,
                         fontWeight: FontWeight.bold,
-                        color: AppTheme.secondaryColor,
+                        color: Color(0xFF5D3B91),
                       ),
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 20),
                 PrimaryButton(
                   text: 'Login',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MainNavigation(),
-                      ),
-                    );
-                  },
+                  onPressed: _login,
                 ),
-
                 const SizedBox(height: 2),
                 TextButton(
                   onPressed: () {
@@ -144,7 +151,7 @@ class LoginPage extends StatelessWidget {
                           text: ' Criar conta',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: AppTheme.textColor,
+                            color: Color(0xFF3E3666),
                           ),
                         ),
                       ],

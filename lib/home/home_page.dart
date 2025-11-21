@@ -1,3 +1,4 @@
+import 'package:babysteps/education/question_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,40 +15,6 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color(0xFFEDE1F7),
         foregroundColor: const Color(0xFF3E3666),
-        actions: [
-          PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert),
-            onSelected: (value) {
-              if (value == 'config') {
-                print("Configurações");
-              } else if (value == 'sair') {
-                print("Sair");
-              }
-            },
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: 'config',
-                child: Row(
-                  children: [
-                    Icon(Icons.settings, color: Colors.black54),
-                    SizedBox(width: 8),
-                    Text('Configurações'),
-                  ],
-                ),
-              ),
-              const PopupMenuItem<String>(
-                value: 'sair',
-                child: Row(
-                  children: [
-                    Icon(Icons.logout, color: Colors.black54),
-                    SizedBox(width: 8),
-                    Text('Sair'),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
       body: Container(
         decoration: const BoxDecoration(color: Color(0xFFEDE1F7)),
@@ -83,22 +50,43 @@ class HomePage extends StatelessWidget {
                             context,
                             title: "Definição dos domínios do bebê",
                             icon: Icons.description,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/definicao_dominios');
+                            },
                           ),
                           const SizedBox(height: 16),
                           _buildMenuItem(
                             context,
                             title: "Técnicas de estimulação",
                             icon: Icons.play_circle_fill,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/tecnicas_estimulacao');
+                            },
                           ),
                           const SizedBox(height: 16),
                           _buildMenuItem(
                             context,
-                            title: "Alcançar marcos",
-                            icon: Icons.calendar_today,
-                            onTap: () {},
-                            hasMic: true,
+                            title: "Puericultura",
+                            icon: Icons.medical_services,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const QuestionDetailPage(
+                                    question: 'Puericultura',
+                                    pages: [
+                                      'A consulta de puericultura é uma ação do Ministério da Saúde para a efetivação do pleno crescimento e desenvolvimento infantil. É uma consulta de rotina, que deve ser realizada na unidade básica de saúde por meio da estratégia de saúde da família mais próxima do seu local de residência.',
+                                      'O que deve ser abordado/conversado: amamentação/alimentação, imunização, prevenção de quedas/acidentes, marcos do desenvolvimento infantil, medidas para acompanhamento das curvas de crescimento físico (peso, altura, IMC), medidas de saúde bucal, avaliação dos sinais de deficiência, com foco nas alterações sensoriais.',
+                                      'Quando realizar: O Ministério da saúde recomenda pelo menos 7 consultas no primeiro ano de vida (na 1ª semana, no 1º mês, 2º mês, 4º mês, 6º mês, 9º mês e 12º mês). Ao completar dois anos, as consultas de rotina devem acontecer sempre uma vez no ano. É importante que essa consulta anual seja realizada sempre próximo a data de aniversário.',
+                                      'Importante: Lembre-se, isso é o recomendado! Se você tem a oportunidade de levar a criança mais vezes, é importante pois o processo de acompanhamento de crescimento e desenvolvimento será ainda mais presente e constante.',
+                                      'A consulta da primeira semana de vida é muito importante pois ela avalia a saúde da mãe e do recém-nascido, amamentação, vacinas e também orientações de cuidado e higiene. Ela pode ser realizada no domicílio ou na unidade de saúde onde foi realizado o pré-natal, na unidade mais próxima de sua residência. Mas lembre-se: você deverá levar a criança em todas as datas que falei acima.',
+                                      'Atenção! Não deixe para levar a criança somente quando ela apresentar algum sinal de que esteja doente. É necessário avaliar como ela cresce e se desenvolve.',
+                                      'O que devo levar ou perguntar na consulta de puericultura? Você deverá ir junto com a criança. É importante a presença dos pais ou de cuidadores nesse momento. Lembre-se de levar a caderneta da criança que recebeu na maternidade, pois o profissional irá preencher todas as informações nela e lhe repassará informações a partir dela. Se possível, registre todas as suas dúvidas para perguntar no momento da consulta e lembre de verificar se o profissional faz a checagem dos marcos do desenvolvimento da criança para a idade. A consulta deve ser um momento de conversa, análise e registros da criança. Aproveite bem esse momento!',
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -118,7 +106,6 @@ class HomePage extends StatelessWidget {
     required String title,
     required IconData icon,
     required VoidCallback onTap,
-    bool hasMic = false,
   }) {
     return GestureDetector(
       onTap: onTap,
@@ -135,43 +122,25 @@ class HomePage extends StatelessWidget {
           ],
         ),
         padding: const EdgeInsets.all(16),
-        child: Stack(
+        child: Row(
           children: [
-            Row(
-              children: [
-                Icon(icon, size: 36, color: const Color(0xFF5D3B91)),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 16,
-                  color: Color(0xFF5D3B91),
-                ),
-              ],
-            ),
-            if (hasMic)
-              Positioned(
-                top: 4,
-                right: 4,
-                child: CircleAvatar(
-                  radius: 10,
-                  backgroundColor: const Color(0xFF5D3B91),
-                  child: Icon(
-                    Icons.notifications,
-                    size: 12,
-                    color: Colors.white,
-                  ),
+            Icon(icon, size: 36, color: const Color(0xFF5D3B91)),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
+            ),
+            const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+              color: Color(0xFF5D3B91),
+            ),
           ],
         ),
       ),

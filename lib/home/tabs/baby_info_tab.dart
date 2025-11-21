@@ -28,7 +28,7 @@ class BabyInfoTab extends StatelessWidget {
             const SizedBox(height: 16),
             const Center(
               child: Text(
-                'Bebê asiática',
+                'Bebê',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,

@@ -1,5 +1,6 @@
-// widget principal com o MaterialApp, rotas e tema.
+import 'package:babysteps/education/definicao_dominios_page.dart';
 import 'package:babysteps/education/desenvolvimento_com_afeto_page.dart';
+import 'package:babysteps/education/tecnicas_estimulacao_page.dart';
 import 'package:babysteps/home/tabs/presentation_tab.dart';
 import 'package:babysteps/home/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,8 @@ class BabySteps extends StatelessWidget {
         '/login_page': (context) => LoginPage(),
         '/home_page': (context) => const HomePage(),
         '/desenvolvimento_com_afeto': (context) => const DesenvolvimentoComAfetoPage(),
+        '/definicao_dominios': (context) => const DefinicaoDominiosPage(),
+        '/tecnicas_estimulacao': (context) => const TecnicasEstimulacaoPage(),
         // '/signup_page': (context) => SignUpScreen(),
       },
     );
